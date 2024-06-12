@@ -1,0 +1,16 @@
+flask
+scikit-learn
+numpy
+pandas
+matplotlib
+openpyxl
+lightgbm
+plotly.express
+dash
+dash_bootstrap_components
+tensorflow
+dash_bootstrap_templates
+seaborn
+waitress
+scikeras
+gunicorn

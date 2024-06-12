@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Diagnosis Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/visualisation">Visualisation</a>
+        <button onclick="toggleDarkMode()">☀ 🔆 </button>
+    </div>
+    <div class="container">
+        <div class="header">
+            <h1>Diabetes Prediction</h1>
+        </div>
+        
+        <form id="predictionForm" method="post" action="/predict">
+            <!-- Demographics -->
+            <h3>Demographics</h3>
+            <label for="age">Age:</label>
+            <input type="number" name="age" id="age" required><br>
+
+            <label for="race">Race:</label>
+            <select name="race" id="race" required>
+                <option value='Mexican American'>Mexican American</option>
+                <option value='Other Hispanic'>Other Hispanic</option>
+                <option value='White'>White</option>
+                <option value='Black'>Black</option>
+                <option value='Asian'>Asian</option>
+                <option value='Others'>Others</option>
+            </select><br>
+
+            <label for="gender">Gender:</label>
+            <select name="gender" id="gender" required>
+                <option value=0>Female</option>
+                <option value=1>Male</option>
+            </select><br>
+
+            <label for="maritalStatus">Marital Status:</label>
+            <select name="maritalStatus" id="maritalStatus" required>
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+                <option value="Divorced">Divorced</option>
+                <option value="Widowed">Widowed</option>
+                <option value="Separated">Separated</option>
+                <option value="Living with Partner">Living with Partner</option>
+            </select><br>
+
+            <label for="householdSize">Household Size:</label>
+            <select name="householdSize" id="householdSize" required>
+                <option value=1>Alone</option>
+                <option value=2>2 people</option>
+                <option value=3>3 people</option>
+                <option value=4>4 people</option>
+                <option value=5>5 people</option>
+                <option value=6>6 people</option>
+                <option value=7>>7 or more people</option>
+            </select><br>
+
+            <!-- Health Parameters -->
+            <h3>Health Parameters</h3>
+            <label for="bpSys">Blood Pressure (Systolic):</label>
+            <input type="number" name="bpSys" id="bpSys" required><br>
+
+            <label for="cholesterol">Cholesterol:</label>
+            <select name="cholesterol" id="cholesterol" required>
+                <option value=1>Yes</option>
+                <option value=0>No</option>
+            </select><br>
+
+            <label for="glucose_level">Glucose Level:</label>
+            <input type="number" name="glucose_level" id="glucose_level" required><br>
+
+            <label for="bmi">BMI:</label>
+            <input type="number" name="bmi" id="bmi" step="0.1" required><br>
+
+            <!-- Disease History -->
+            <h3>Disease History</h3>
+            <label for="arthritis">Arthritis:</label>
+            <select name="arthritis" id="arthritis" required>
+                <option value=1>Yes</option>
+                <option value=0>No</option>
+            </select><br>
+
+            <label for="heartAttack">Heart Attack:</label>
+            <select name="heartAttack" id="heartAttack" required>
+                <option value=1>Yes</option>
+                <option value=0>No</option>
+            </select><br>
+
+            <label for="stroke">Stroke:</label>
+            <select name="stroke" id="stroke" required>
+                <option value=1>Yes</option>
+                <option value=0>No</option>
+            </select><br>
+
+            <label for="hypertension">Hypertension:</label>
+            <select name="hypertension" id="hypertension" required>
+                <option value=1>Yes</option>
+                <option value=0>No</option>
+            </select><br>
+
+            <!-- Physical Activity & Mental Health -->
+            <h3>Physical Activity & Mental Health</h3>
+            <label for="walkDiff">Difficulty Walking:</label>
+            <select name="walkDiff" id="walkDiff" required>
+                <option value=1>No Difficulty</option>
+                <option value=2>Some Difficulty</option>
+                <option value=3>Much Difficulty</option>
+                <option value=4>Unable to do</option>
+                <option value=5>Do not do this activity</option>
+            </select><br>
+
+            <label for="interestInDoingThings">Interest in Doing Things:</label>
+            <select name="interestInDoingThings" id="interestInDoingThings" required>
+                <option value=0>0</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+            </select><br>
+
+            <label for="tiredOrLowEnergy">Tired or Low Energy:</label>
+            <select name="tiredOrLowEnergy" id="tiredOrLowEnergy" required>
+                <option value=0>0</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+            </select><br>
+
+            <label for="depressedOrHopeless">Depressed or Hopeless:</label>
+            <select name="depressedOrHopeless" id="depressedOrHopeless" required>
+                <option value=0>0</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+            </select><br>
+
+            <label for="troubleSleeping">Trouble Sleeping:</label>
+            <select name="troubleSleeping" id="troubleSleeping" required>
+                <option value=0>0</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+            </select><br>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        <div id="predictionResult"></div>
+    </div>
+    <script>
+        function toggleDarkMode() {
+            var body = document.body;
+            body.classList.toggle("dark-mode");
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Handle form submission
+        $('#predictionForm').submit(function(event) {
+            event.preventDefault();
+            var form = $(this);
+            $.ajax({
+                type: form.attr('method'),
+                url: form.attr('action'),
+                data: form.serialize(),
+                dataType: 'json',
+                success: function(data) {
+                    $('#predictionResult').html('<p>Diagnosis: ' + data.diagnosis + '</p>');
+                },
+                error: function(xhr, status, error) {
+                    $('#predictionResult').html('<p>Error: ' + error + '</p>');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

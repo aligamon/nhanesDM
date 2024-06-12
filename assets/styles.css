@@ -1,0 +1,14 @@
+span.navbar-toggler-icon::after {
+    color: white;
+    font: normal normal normal 14px/1 FontAwesome;
+    }
+.sidebar {
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+        background-color: #f8f9fa;
+    }
+

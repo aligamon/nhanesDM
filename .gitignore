@@ -1,0 +1,45 @@
+# .gitignore
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebook files
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Virtual Environment
+.venv/
+.venv.bak/
+.env
+
+# Logs
+*.log
+
+# Docker files
+logs/
+Dockerfile
+
+# Ignore Docker container logs
+**/logs/app.log
