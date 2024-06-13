@@ -1,5 +1,7 @@
 # nhanesDM
 
+### The dataset, sourced from National Health and Nutrition Examination Survey (NHANES) for educational purposes, is used to develop a website that facilitates machine learning predictions for diabetes and features an interactive dashboard.
+
 ## Key Components:
 
 ### Flask Application (app.py):
