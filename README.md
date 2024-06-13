@@ -21,23 +21,24 @@
   - Display the first few rows to understand the structure of the data.
 
 - Data Preprocessing:
+  - Handle missing values by filling them with the mean of each column.
+  - Separate features and target variable.
+  - Encode categorical features using OneHotEncoder.
+  - Scale numerical features using StandardScaler.
 
-Handle missing values by filling them with the mean of each column.
-Separate features and target variable.
-Encode categorical features using OneHotEncoder.
-Scale numerical features using StandardScaler.
-Feature Engineering:
+- Feature Engineering:
 
-Combine scaled numerical and encoded categorical features into a single feature matrix X.
-Model Training:
+  - Combine scaled numerical and encoded categorical features into a single feature matrix X.
 
-Split the data into training and testing sets.
-Train a Logistic Regression model and a Random Forest model.
-Train a neural network using Keras.
-Model Evaluation:
+- Model Training:
 
-Evaluate the performance of each model using classification reports.
-Model Saving:
+  - Split the data into training and testing sets.
+  - Train a Logistic Regression model and a Random Forest model.
+  - Train a neural network using Keras.
 
-Save the trained models, scaler, and encoder using joblib.
-Save the neural network model using Keras' model.save() function.
+- Model Evaluation:
+  - Evaluate the performance of each model using classification reports.
+  - 
+- Model Saving:
+  - Save the trained models, scaler, and encoder using joblib.
+  - Save the neural network model using Keras' model.save() function.
