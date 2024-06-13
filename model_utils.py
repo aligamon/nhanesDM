@@ -60,6 +60,7 @@ def predict(data):
     scaled_input = preprocess_input(data)
     model, scaler, _ = get_model_scaler_and_encoder()
     try:
+        print("Predicting...")
         prediction = model.predict(scaled_input)[0]
     except Exception as e:
         logging.error(f"Error predicting: {e}")

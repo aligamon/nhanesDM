@@ -7,9 +7,9 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="/">Home</a>
-        <a href="/visualisation">Diabetes Dashboard</a>
-        <button onclick="toggleDarkMode()">☀ 🔆 </button>
+        <a href="/" class="home">Home</a>
+        <a href="/visualisation" class="dash">Diabetes Dashboard</a>
+        <button onclick="toggleDarkMode()">☀️🔆</button>
     </div>
     <div class="container">
         <div class="header">
@@ -162,6 +162,10 @@
         $('#predictionForm').submit(function(event) {
             event.preventDefault();
             var form = $(this);
+            
+            // Show "Predicting..." message
+            $('#predictionResult').html('<p class="predicting">Predicting...</p>');
+    
             $.ajax({
                 type: form.attr('method'),
                 url: form.attr('action'),
