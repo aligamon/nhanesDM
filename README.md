@@ -26,15 +26,10 @@
   - Encode categorical features using OneHotEncoder.
   - Scale numerical features using StandardScaler.
 
-- Feature Engineering:
-
-  - Combine scaled numerical and encoded categorical features into a single feature matrix X.
-
 - Model Training:
 
   - Split the data into training and testing sets.
-  - Train a Logistic Regression model and a Random Forest model.
-  - Train a neural network using Keras.
+  - Train a Random Forest model and neural network using Keras.
 
 - Model Evaluation:
   - Evaluate the performance of each model using classification reports.
