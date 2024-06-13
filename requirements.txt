@@ -11,6 +11,6 @@ dash_bootstrap_components
 tensorflow
 dash_bootstrap_templates
 seaborn
-waitress
+
 scikeras
 gunicorn
