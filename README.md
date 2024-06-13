@@ -38,7 +38,7 @@
 
 - Model Evaluation:
   - Evaluate the performance of each model using classification reports.
-  - 
+    
 - Model Saving:
   - Save the trained models, scaler, and encoder using joblib.
   - Save the neural network model using Keras' model.save() function.
