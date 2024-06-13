@@ -8,7 +8,7 @@
 <body>
     <div class="navbar">
         <a href="/">Home</a>
-        <a href="/visualisation">Visualisation</a>
+        <a href="/visualisation">Diabetes Dashboard</a>
         <button onclick="toggleDarkMode()">☀ 🔆 </button>
     </div>
     <div class="container">
@@ -62,41 +62,41 @@
             <!-- Health Parameters -->
             <h3>Health Parameters</h3>
             <label for="bpSys">Blood Pressure (Systolic):</label>
-            <input type="number" name="bpSys" id="bpSys" required><br>
+            <input type="number" name="bpSys" id="bpSys" value="115" required><br>
 
-            <label for="cholesterol">Cholesterol:</label>
-            <select name="cholesterol" id="cholesterol" required>
-                <option value=1>Yes</option>
-                <option value=0>No</option>
-            </select><br>
+            <label for="glucose_level">Fasting Glucose Level:</label>
+            <input type="number" name="glucose_level" id="glucose_level" value="6" required><br>
 
-            <label for="glucose_level">Glucose Level:</label>
-            <input type="number" name="glucose_level" id="glucose_level" required><br>
-
-            <label for="bmi">BMI:</label>
-            <input type="number" name="bmi" id="bmi" step="0.1" required><br>
+            <label for="bmi">BMI (Kg/m²):</label>
+            <input type="number" name="bmi" id="bmi" value="22" step="0.1" required><br>
 
             <!-- Disease History -->
             <h3>Disease History</h3>
-            <label for="arthritis">Arthritis:</label>
+            <label for="arthritis">History ofArthritis:</label>
             <select name="arthritis" id="arthritis" required>
                 <option value=1>Yes</option>
                 <option value=0>No</option>
             </select><br>
 
-            <label for="heartAttack">Heart Attack:</label>
+            <label for="cholesterol">History of Hypercholestrolemia:</label>
+            <select name="cholesterol" id="cholesterol" required>
+                <option value=1>Yes</option>
+                <option value=0>No</option>
+            </select><br>
+
+            <label for="heartAttack">History of Heart Attack:</label>
             <select name="heartAttack" id="heartAttack" required>
                 <option value=1>Yes</option>
                 <option value=0>No</option>
             </select><br>
 
-            <label for="stroke">Stroke:</label>
+            <label for="stroke">History of Stroke:</label>
             <select name="stroke" id="stroke" required>
                 <option value=1>Yes</option>
                 <option value=0>No</option>
             </select><br>
 
-            <label for="hypertension">Hypertension:</label>
+            <label for="hypertension">History of Hypertension:</label>
             <select name="hypertension" id="hypertension" required>
                 <option value=1>Yes</option>
                 <option value=0>No</option>
