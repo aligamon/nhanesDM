@@ -17,8 +17,8 @@
 
 ### Data Preprocessing (dataCleaning.ipynb)
 - Data Loading:
--- Load the dataset using pd.read_csv().
--- Display the first few rows to understand the structure of the data.
+  - Load the dataset using pd.read_csv().
+  - Display the first few rows to understand the structure of the data.
 
 - Data Preprocessing:
 
